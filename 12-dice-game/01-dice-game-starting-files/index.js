@@ -3,3 +3,9 @@
 
 const randomNumber = Math.floor(Math.random() * 6) + 1
 console.log(randomNumber);
+
+// select element and then change its attribute with an event listener on click
+const diceOne = document.querySelector(".img1");
+diceOne.addEventListener( "click", (event) => {
+  event.currentTarget.setAttribute("src", `./images/dice${randomNumber}.png`)
+})
