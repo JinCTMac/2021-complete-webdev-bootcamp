@@ -11,3 +11,11 @@ diceOne.addEventListener( "click", (event) => {
   const randomNumber = Math.floor(Math.random() * 6) + 1
   event.currentTarget.setAttribute("src", `./images/dice${randomNumber}.png`)
 })
+
+// same thing for second dice
+
+const diceTwo = document.querySelector(".img2");
+diceTwo.addEventListener( "click", (event) => {
+  const randomNumber = Math.floor(Math.random() * 6) + 1
+  event.currentTarget.setAttribute("src", `./images/dice${randomNumber}.png`)
+})
