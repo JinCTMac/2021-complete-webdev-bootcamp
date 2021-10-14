@@ -10,9 +10,23 @@ const diceOne = document.querySelector(".img1");
 const diceTwo = document.querySelector(".img2");
 
 diceOne.addEventListener( "click", (event) => {
-  const randomNumber = Math.floor(Math.random() * 6) + 1
+  const randomNumber = Math.floor(Math.random() * 6) + 1;
+  const randomNumber2 = Math.floor(Math.random() * 6) + 1;
   event.currentTarget.setAttribute("src", `./images/dice${randomNumber}.png`)
-  diceTwo.setAttribute("src", `./images/dice${randomNumber}.png`)
+  diceTwo.setAttribute("src", `./images/dice${randomNumber2}.png`)
+
+  // logic for displaying who wins
+  // we select the title element
+  // then depending on the random number we change the text
+  const title = document.querySelector(".title");
+
+  if (randomNumber > randomNumber2) {
+    title.innerHTML = "You Win!!!";
+  } else if (randomNumber === randomNumber2) {
+    title.innerHTML= "It's a draw!";
+  } else {
+    title.innerHTML = "CPU Wins!!!";
+  }
 })
 
 // same thing for second dice
