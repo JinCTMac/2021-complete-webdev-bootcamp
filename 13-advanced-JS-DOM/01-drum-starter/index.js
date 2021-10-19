@@ -54,7 +54,12 @@ const keyCheck = (key) => {
 
 const buttonAnimation = (key) => {
   const pressedKey = document.querySelector(`.${key}`)
-  pressedKey.classList.toggle("pressed");
+  pressedKey.classList.add("pressed");
+
+  // we can add a delay to remove the class via setTimeout
+  setTimeout(function() {
+    pressedKey.classList.remove("pressed");
+  }, 100);
 }
 
 // Eventlisteners
