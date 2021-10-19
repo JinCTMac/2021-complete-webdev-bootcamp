@@ -17,31 +17,31 @@ footer {
 }
 
 .w {
-  background-image: "./images/tom1.png";
+  background-image: url("./images/tom1.png");
 }
 
 .a {
-  background-image: "./images/tom2.png";
+  background-image: url("./images/tom2.png");
 }
 
 .s {
-  background-image: "./images/tom3.png";
+  background-image: url("./images/tom3.png");
 }
 
 .d {
-  background-image: "/images/tom4.png";
+  background-image: url("./images/tom4.png");
 }
 
 .j {
-  background-image: "./images/snare.png";
+  background-image: url("./images/snare.png");
 }
 
 .k {
-  background-image: "./images/crash.png";
+  background-image: url("./images/crash.png");
 }
 
 .l {
-  background-image: "./images/kick.png";
+  background-image: url("./images/kick.png");
 }
 
 .set {
@@ -60,6 +60,10 @@ footer {
 
 .red {
   color: red;
+}
+
+.white {
+  color: white;
 }
 
 .drum {
