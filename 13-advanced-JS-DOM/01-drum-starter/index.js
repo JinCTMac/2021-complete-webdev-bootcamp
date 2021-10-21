@@ -9,6 +9,8 @@
 //   // likely because it doesn't pass on the data for this to the function
 // }
 
+// switch statement to manage the audio files that play on click/keyup
+
 const keyCheck = (key) => {
     switch (key) {
     case "w":
@@ -72,7 +74,11 @@ allKeys.forEach((key) => {
   key.addEventListener('click', function(event) {
     // console.log(this);
     const key = this.innerHTML;
+    // we call the keycheck function to check which key is clicked/pressed
+    // and pass in the key value of this.innerHTML which refers to the key the eventlistener has picked up
     keyCheck(key);
+    // then we call the buttonAnimation function and pass in the key
+    // and add the css class to the clicked element for 0.1ms to simulate animation
     buttonAnimation(key);
 
   })
