@@ -6,6 +6,12 @@
 //   $("h1").css("color", "red")
 // })
 
-$("h1").css("color", "red")
+const h1Test = $("h1");
 
-console.log($("h1").css("color"))
+// adding style to an element
+h1Test.css("color", "red")
+
+// checking the style value of an element
+console.log(h1Test.css("color"))
+// checking if an element has the class we specify
+console.log(h1Test.hasClass("title-test"));
