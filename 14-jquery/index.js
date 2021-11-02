@@ -15,3 +15,8 @@ h1Test.css("color", "red")
 console.log(h1Test.css("color"))
 // checking if an element has the class we specify
 console.log(h1Test.hasClass("title-test"));
+
+// manipulating text/HTML - note we can affect all elements with the same selector
+const button = $("button");
+button.text("WOW")
+button.html("<em>Click Here</em>")
