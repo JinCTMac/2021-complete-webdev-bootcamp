@@ -26,3 +26,26 @@ button.html("<em>Click Here</em>")
 h1Test.attr("href", "https://www.google.com/");
 // returns the value of the attribute
 console.log(h1Test.attr("href"));
+
+// event listener
+h1Test.click(() => {
+  h1Test.css("color", "purple")
+})
+
+// adding event listener to multiple elements at once
+button.click(() => {
+  h1Test.css("color", "green")
+})
+
+// input field checking for keypress event
+const inputField = $(".text-input-field");
+
+// inputField.keypress((event) => {
+//   console.log(event.currentTarget.value)
+//   h1Test.text(`${event.key}`)
+// })
+
+// == to
+inputField.on("keyup", () => {
+  h1Test.text(`${event.key}`)
+});
