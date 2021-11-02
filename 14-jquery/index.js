@@ -20,3 +20,9 @@ console.log(h1Test.hasClass("title-test"));
 const button = $("button");
 button.text("WOW")
 button.html("<em>Click Here</em>")
+
+// manipulating attributes
+// sets attribute of href to google
+h1Test.attr("href", "https://www.google.com/");
+// returns the value of the attribute
+console.log(h1Test.attr("href"));
