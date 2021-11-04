@@ -35,6 +35,17 @@ h1Test.click(() => {
 // adding event listener to multiple elements at once
 button.click(() => {
   h1Test.css("color", "green")
+  // adding an animation with the .hide() method
+  // h1Test.hide()
+
+  // or toggle with the .toggle() method
+  h1Test.toggle()
+
+  // or we can use the fadeIn(), .fadeOut(), and fadeToggle()
+  h1Test.fadeToggle()
+  h1Test.slideToggle()
+  h1Test.animate({opacity: 0.75})
+  h1Test.slideUp().slideDown().animate({opacity: 0.75})
 })
 
 // input field checking for keypress event
