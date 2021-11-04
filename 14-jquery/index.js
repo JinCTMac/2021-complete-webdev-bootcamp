@@ -49,3 +49,9 @@ const inputField = $(".text-input-field");
 inputField.on("keyup", () => {
   h1Test.text(`${event.key}`)
 });
+
+h1Test.before("<button>New</button>")
+h1Test.after("<button>Old</button>")
+h1Test.prepend("<strong>WOW</strong>")
+h1Test.prepend("<em>AMAZING</em>")
+// h1Test.remove()
