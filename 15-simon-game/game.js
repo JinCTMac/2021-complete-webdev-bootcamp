@@ -10,6 +10,8 @@ const nextSequence = () => {
   // where Math.floor rounds the number down and Math.random() makes a random num between 0 and 1(upperbound)
   // we multiply by 3 and add 1 to ensure only positive numbers above 0
   const randomNumber = Math.floor(Math.random() * 3) + 1
+  // we define a random chosen colour by indexing a random value from a defined array of colours, buttonColours
   const randomChosenColour = buttonColours[randomNumber]
+  // then to define the sequence of colours, we append it to another array, holding the sequence of colours gamePattern
   gamePattern.push(randomChosenColour)
 }
