@@ -8,7 +8,7 @@
 
 const h1Test = $("h1");
 
-// adding style to an element
+// adding style to an element - we use 2 arguments for this.
 h1Test.css("color", "red")
 
 // checking the style value of an element
