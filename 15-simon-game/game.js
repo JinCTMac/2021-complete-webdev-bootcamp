@@ -1,6 +1,15 @@
 
 const buttonColours = ["red", "blue", "green", "yellow"];
 const gamePattern = [];
+const userClickedPattern = [];
+
+const clickhandler = (value) => {
+  // we get the id of the button the user clicks on
+  // and then we add that to the userClickedPattern array
+  // and check if that is the same as the gamePattern
+  // if not, then we tell player they lost
+  const userChosenColour = value.target.id;
+}
 
 // nextSequence function
 // controls the next sequence given in the simon game
@@ -23,4 +32,9 @@ const nextSequence = () => {
   const audioObject = new Audio(`./sounds/${randomChosenColour}.mp3`);
   // play audio
   audioObject.play();
+
+  // detect when button is clicked
+  chosenButton.on("click", (event) => {
+    clickHandler(event);
+  })
 }
