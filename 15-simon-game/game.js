@@ -14,4 +14,13 @@ const nextSequence = () => {
   const randomChosenColour = buttonColours[randomNumber]
   // then to define the sequence of colours, we append it to another array, holding the sequence of colours gamePattern
   gamePattern.push(randomChosenColour)
+
+  // selecting button with same id as randomChosenColour
+  const chosenButton = $(`#${randomChosenColour}`);
+  // flash animation
+  chosenButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+  // setting sound object to be equal to the sound of the button
+  const audioObject = new Audio(`./sounds/${randomChosenColour}.mp3`);
+  // play audio
+  audioObject.play();
 }
