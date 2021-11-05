@@ -41,7 +41,7 @@ const nextSequence = () => {
   // flash animation
   chosenButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
-  //playing sound
+  //playing sound with playSound function
   playSound(chosenButton)
 
 }
@@ -49,7 +49,8 @@ const nextSequence = () => {
 const playSound = (name) => {
   // we take the name as the value of the id from the clicked button
   // we call this playSound() function in the event listener for the button click
-  // so on click, the ID of the button is passed into this function, which plays the according sound
+  // so on click, the ID of the button is passed into this function, which plays the according sound for the button, passing the ID into the template literal
+  // which parses the right sound file
   const audioObject = new Audio(`./sounds/${name}.mp3`);
   // play audio
   audioObject.play();
