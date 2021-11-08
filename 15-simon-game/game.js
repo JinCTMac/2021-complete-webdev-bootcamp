@@ -1,29 +1,21 @@
 
-const buttonColours = ["red", "blue", "green", "yellow"];
-const gamePattern = [];
-const userClickedPattern = [];
+let buttonColours = ["red", "blue", "green", "yellow"];
+
+let gamePattern = [];
+let userClickedPattern = [];
 
 // detect when any button is clicked
 const button = $(".btn");
 
-button.on("click", () => {
-  // we get the id of the button the user clicks on
-  // and then we add that to the userClickedPattern array
-  // and check if that is the same as the gamePattern
-  // if not, then we tell player they lost
+$(".btn").click(function() {
 
-  // to get the id of the button the user clicked on, we can use button.attr("id") to get the value of the id
-  const userChosenColour = button.attr("id");
+  var userChosenColour = $(this).attr("id");
+  userClickedPattern.push(userChosenColour);
 
-  // then we push to the array
-  userClickedPattern.push(userChosenColour)
-
-  // we call the playSound function that takes the ID of the button clicked to parse the right audio file
   playSound(userChosenColour);
 
-  // we also show the animation of the button being pressed, animatePress
-  animatePress(userChosenColour)
-})
+  animatePress(userChosenColour);
+});
 
 const nextSequence = () => {
   // to make a random number, we need Math.floor(Math.random())
@@ -42,7 +34,6 @@ const nextSequence = () => {
 
   //playing sound with playSound function
   playSound(chosenButton)
-
 }
 
 const playSound = (name) => {
@@ -50,7 +41,7 @@ const playSound = (name) => {
   // we call this playSound() function in the event listener for the button click
   // so on click, the ID of the button is passed into this function, which plays the according sound for the button, passing the ID into the template literal
   // which parses the right sound file
-  const audioObject = new Audio(`./sounds/${name}.mp3`);
+  const audioObject = new Audio(`sounds/${name}.mp3`);
   // play audio
   audioObject.play();
 }
