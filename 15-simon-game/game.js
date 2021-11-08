@@ -20,12 +20,11 @@ button.on("click", () => {
 
   // we call the playSound function that takes the ID of the button clicked to parse the right audio file
   playSound(userChosenColour);
+
+  // we also show the animation of the button being pressed, animatePress
+  animatePress(userChosenColour)
 })
 
-
-// nextSequence function
-// controls the next sequence given in the simon game
-// i.e. when you get it correct, randomly selects another colour and adds to sequence
 const nextSequence = () => {
   // to make a random number, we need Math.floor(Math.random())
   // where Math.floor rounds the number down and Math.random() makes a random num between 0 and 1(upperbound)
@@ -54,4 +53,16 @@ const playSound = (name) => {
   const audioObject = new Audio(`./sounds/${name}.mp3`);
   // play audio
   audioObject.play();
+}
+
+const animatePress = (currentColour) => {
+  // takes single parameter, currentColour - that is the ID of the colour of the clicked button, which we pass in from the eventListener
+  // use jQuery to add the .pressed css class to the button that has been clicked on
+  const clickedButton = $("#" + currentColour);
+  clickedButton.addClass("pressed");
+
+  // after 100 ms we timeout the pressed class
+  setTimeout(() => {
+    clickedButton.removeClass("pressed");
+  }, 100)
 }
