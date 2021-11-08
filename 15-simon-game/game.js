@@ -4,9 +4,27 @@ let buttonColours = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
 
+// check if the game has started or not
+let started = false;
+
+// level variable
+let level = 0;
+
 // detect when any button is clicked
 const button = $(".btn");
 
+// check for first click
+$(document).click(() => {
+  if (!started) {
+
+    //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
+// sound and animation on click of button
 $(".btn").click(function() {
 
   var userChosenColour = $(this).attr("id");
@@ -15,9 +33,19 @@ $(".btn").click(function() {
   playSound(userChosenColour);
 
   animatePress(userChosenColour);
+
+  checkAnswer(userChosenColour)
 });
 
+// nextSequence function
 const nextSequence = () => {
+  // increasing level by 1
+  level += 1
+  console.log(level)
+
+  // update title to account for level increase
+  $("#level-title").text("Level " + level);
+
   // to make a random number, we need Math.floor(Math.random())
   // where Math.floor rounds the number down and Math.random() makes a random num between 0 and 1(upperbound)
   // we multiply by 4 to allow it to select a value between 0 and 3 corresponding to index
@@ -34,6 +62,7 @@ const nextSequence = () => {
 
   //playing sound with playSound function
   playSound(chosenButton)
+
 }
 
 const playSound = (name) => {
@@ -56,4 +85,10 @@ const animatePress = (currentColour) => {
   setTimeout(() => {
     clickedButton.removeClass("pressed");
   }, 100)
+}
+
+
+// Step 8: checkAnswer function
+const checkAnswer = (currentLevel) => {
+
 }
