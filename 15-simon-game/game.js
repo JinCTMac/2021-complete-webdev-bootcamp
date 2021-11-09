@@ -115,9 +115,9 @@ const checkAnswer = (currentLevel) => {
     const wrongAudio = new Audio("./sounds/wrong.mp3");
     wrongAudio.play();
     const pageBody = $("body");
-    pageBody.addClass(".game-over");
+    pageBody.addClass("game-over");
     setTimeout(() => {
-      pageBody.removeClass(".game-over");
+      pageBody.removeClass("game-over");
     }, 200)
     $("h1").text("Game over, press any key to restart.")
   }
