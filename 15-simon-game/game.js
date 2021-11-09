@@ -120,5 +120,17 @@ const checkAnswer = (currentLevel) => {
       pageBody.removeClass("game-over");
     }, 200)
     $("h1").text("Game over, press any key to restart.")
+
+    // call startOver function to restart the game
+    startOver();
   }
+}
+
+// Step 8 - Restart the game
+
+const startOver = () => {
+  level = 0;
+  gamePattern = [];
+  userClickedPattern = [];
+  started = false;
 }
