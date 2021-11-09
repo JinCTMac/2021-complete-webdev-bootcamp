@@ -1,6 +1,5 @@
 
 let buttonColours = ["red", "blue", "green", "yellow"];
-
 let gamePattern = [];
 let userClickedPattern = [];
 
@@ -14,11 +13,12 @@ let level = 0;
 const button = $(".btn");
 
 // check for first click
-$(document).click(() => {
+$(document).keypress(() => {
   if (!started) {
 
-    //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
+    // changes h1 title to level with number
     $("#level-title").text("Level " + level);
+    // START OF GAME - it will call the nextSequence function, which randomly selects a button to light up
     nextSequence();
     started = true;
   }
@@ -27,18 +27,23 @@ $(document).click(() => {
 // sound and animation on click of button
 $(".btn").click(function() {
 
-  var userChosenColour = $(this).attr("id");
+  let userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
 
   playSound(userChosenColour);
 
   animatePress(userChosenColour);
 
-  checkAnswer(userChosenColour)
+  // checks last element in the user clicked array, passes it to checkAnswer
+  checkAnswer(userClickedPattern.length - 1)
+
 });
 
-// nextSequence function
+// nextSequence function - logic of the game
 const nextSequence = () => {
+  //6. Once nextSequence() is triggered, reset the userClickedPattern to an empty array ready for the next level.
+  userClickedPattern = [];
+
   // increasing level by 1
   level += 1
   console.log(level)
@@ -61,7 +66,7 @@ const nextSequence = () => {
   chosenButton.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
   //playing sound with playSound function
-  playSound(chosenButton)
+  playSound(randomChosenColour)
 
 }
 
@@ -70,9 +75,9 @@ const playSound = (name) => {
   // we call this playSound() function in the event listener for the button click
   // so on click, the ID of the button is passed into this function, which plays the according sound for the button, passing the ID into the template literal
   // which parses the right sound file
-  const audioObject = new Audio(`sounds/${name}.mp3`);
+  const audio = new Audio(`sounds/${name}.mp3`);
   // play audio
-  audioObject.play();
+  audio.play();
 }
 
 const animatePress = (currentColour) => {
@@ -90,5 +95,20 @@ const animatePress = (currentColour) => {
 
 // Step 8: checkAnswer function
 const checkAnswer = (currentLevel) => {
-
+  console.log(currentLevel);
+  console.log(userClickedPattern);
+  console.log(gamePattern);
+  // if value of last user answer index === the value of last game answer index
+  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+    console.log("Success");
+    // if the values match, then we check the length of the arrays is the same
+    // if they are the same, then we call nextSequence again with a timeout
+    if (userClickedPattern.length === gamePattern.length) {
+      setTimeout(() => {
+        nextSequence();
+      }, 1000)
+    }
+  } else {
+    console.log("Failure");
+  }
 }
