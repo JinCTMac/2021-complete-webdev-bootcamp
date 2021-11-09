@@ -1,18 +1,17 @@
 
-let buttonColours = ["red", "blue", "green", "yellow"];
+// variables for running the games
+const buttonColours = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
-
 // check if the game has started or not
 let started = false;
-
 // level variable
 let level = 0;
 
 // detect when any button is clicked
 const button = $(".btn");
 
-// check for first click
+// Step 5 - check for first click
 $(document).keypress(() => {
   if (!started) {
 
@@ -24,7 +23,7 @@ $(document).keypress(() => {
   }
 });
 
-// sound and animation on click of button
+// Step 4 - sound and animation on click of button
 $(".btn").click(function() {
 
   let userChosenColour = $(this).attr("id");
@@ -39,7 +38,7 @@ $(".btn").click(function() {
 
 });
 
-// nextSequence function - logic of the game
+// Step 1 - nextSequence function - logic of the game
 const nextSequence = () => {
   //6. Once nextSequence() is triggered, reset the userClickedPattern to an empty array ready for the next level.
   userClickedPattern = [];
@@ -70,6 +69,7 @@ const nextSequence = () => {
 
 }
 
+// Step 2 - play sound
 const playSound = (name) => {
   // we take the name as the value of the id from the clicked button
   // we call this playSound() function in the event listener for the button click
@@ -80,6 +80,7 @@ const playSound = (name) => {
   audio.play();
 }
 
+// Step 3 - Animate button when clicked
 const animatePress = (currentColour) => {
   // takes single parameter, currentColour - that is the ID of the colour of the clicked button, which we pass in from the eventListener
   // use jQuery to add the .pressed css class to the button that has been clicked on
@@ -93,7 +94,7 @@ const animatePress = (currentColour) => {
 }
 
 
-// Step 8: checkAnswer function
+// Step 6: checkAnswer function
 const checkAnswer = (currentLevel) => {
   console.log(currentLevel);
   console.log(userClickedPattern);
@@ -109,6 +110,15 @@ const checkAnswer = (currentLevel) => {
       }, 1000)
     }
   } else {
+    // Step 7 - Game over, logic for what happens when the user gets the pattern wrong
     console.log("Failure");
+    const wrongAudio = new Audio("./sounds/wrong.mp3");
+    wrongAudio.play();
+    const pageBody = $("body");
+    pageBody.addClass(".game-over");
+    setTimeout(() => {
+      pageBody.removeClass(".game-over");
+    }, 200)
+    $("h1").text("Game over, press any key to restart.")
   }
 }
