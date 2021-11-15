@@ -23,4 +23,12 @@ const superheroes = require('superheroes');
 // package method
 const mySuperhero = superheroes.random();
 
+// calling result of that method as variable
 console.log(mySuperhero);
+
+// https://www.npmjs.com/package/supervillains
+const supervillains = require('supervillains');
+
+const mySupervillain = supervillains.random();
+
+console.log(mySupervillain);
