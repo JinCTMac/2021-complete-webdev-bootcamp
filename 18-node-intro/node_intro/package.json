@@ -1,1 +1,14 @@
-{}
+{
+  "name": "node_intro",
+  "version": "1.0.0",
+  "main": "node_intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jin Mac",
+  "license": "ISC",
+  "description": "Node intro",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
