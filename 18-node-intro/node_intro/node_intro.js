@@ -16,3 +16,11 @@
 // https://heynode.com/tutorial/what-packagejson/#:~:text=Recap-,The%20package.,entry%20point%20to%20our%20package.
 
 // LESSON 2 - EXTERNAL NODE PACKAGES FROM NPM
+
+// https://www.npmjs.com/package/superheroes
+const superheroes = require('superheroes');
+
+// package method
+const mySuperhero = superheroes.random();
+
+console.log(mySuperhero);
