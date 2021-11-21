@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-// Step 4 - a callback function that tells us that our app is listening onto the port we specified
+// Step 4 - a callback function that tells us that our app is listening onto the port we specified, which will show up as a console.log inside of our terminal
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
