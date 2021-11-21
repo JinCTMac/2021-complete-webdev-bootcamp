@@ -27,3 +27,13 @@ app.get('/', (req, res) => {
 app.get('/contact', (req, res) => {
   res.send("<h1>Contact Me Here!</h1>")
 })
+
+// Route 3 - the about route
+app.get('/about', (req, res) => {
+  res.send("<h1>I am a web development bootcamp graduate</h1>")
+})
+
+// Route 4 - hobbies
+app.get('/hobbies', (req, res) => {
+  res.send("<h1>I like gaming, learning Japanese and consuming Japanese culture!</h1>")
+})
