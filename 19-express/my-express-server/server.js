@@ -17,6 +17,13 @@ app.listen(port, () => {
 // forms the body of the page - when we access the root URL, /, it will return a response of 'Hello World!', via a get request
 // this is what happens when a browser makes a get request
 // we can also send back HTML wrapped in quotes instead of just plain text
+
+// Route 1 - the root/homepage
 app.get('/', (req, res) => {
   res.send("<h1>Hello World!</h1>")
+})
+
+// Route 2 - the contact route
+app.get('/contact', (req, res) => {
+  res.send("<h1>Contact Me Here!</h1>")
 })
