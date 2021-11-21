@@ -20,5 +20,5 @@ app.listen(port, () => {
 
 // Route 1 - the root/homepage
 app.get('/', (req, res) => {
-  res.send("<h1>Hello World!</h1>")
+  res.sendFile(__dirname + "/index.html")
 })
