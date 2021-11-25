@@ -27,3 +27,8 @@ app.get('/', (req, res) => {
   // returns the directory in the terminal
   res.sendFile(__dirname + "/index.html")
 })
+
+// Route 2 - the POST request handler for the root
+app.post('/', (req, res) => {
+  res.send("Thanks for posting that!")
+})
