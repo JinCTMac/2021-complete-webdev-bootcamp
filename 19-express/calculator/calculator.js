@@ -2,9 +2,12 @@
 
 // Step 1 - We require the express package
 const express = require('express');
+const bodyParser = require('body-parser')
 
 // Step 2 - we make a function, App, and bind to it the express package
 const app = express();
+// setting up bodyparser
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Step 3 - we set the port for localhost equal to 3000
 const port = 3000;
@@ -30,5 +33,16 @@ app.get('/', (req, res) => {
 
 // Route 2 - the POST request handler for the root
 app.post('/', (req, res) => {
-  res.send("Thanks for posting that!")
+
+  // we can access the request.body which returns an object/json that we can access properties from
+  // these properties are visible in the name attributes inside of the form
+  // console.log(req.body.num1)
+  let num1 = Number(req.body.num1);
+  let num2 = Number(req.body.num2);
+  let sum = 0;
+
+  sum = num1 + num2
+  res.send(`Thanks for posting that. The result of this calculation is ${sum}`)
 })
+
+// Parsing the POST request response
