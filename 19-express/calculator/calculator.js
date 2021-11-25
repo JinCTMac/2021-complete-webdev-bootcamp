@@ -45,4 +45,20 @@ app.post('/', (req, res) => {
   res.send(`Thanks for posting that. The result of this calculation is ${sum}`)
 })
 
-// Parsing the POST request response
+// BMI CALCULATOR HTTP REQUESTS
+
+
+// get request
+app.get('/bmicalculator', (req, res) => {
+  res.sendFile(__dirname + "/bmiCalculator.html")
+})
+
+// post request
+app.post('/bmicalculator', (req, res) => {
+  let weight = parseFloat(req.body.weight);
+  let height = parseFloat(req.body.height);
+  let sum = 0;
+
+  sum = (weight/(height * height))
+  res.send(`Your BMI is ${sum}`)
+})
