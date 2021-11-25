@@ -23,5 +23,7 @@ app.get('/', (req, res) => {
   // we need __dirname to send the filepath of the html file
   // before we would send the local filepath
   // but on deployment the filepath will be different, so we need the __dirname (directory name) to give the filepath of the current file NO MATTER WHERE IT IS HOSTED
+  // console.log(__dirname)
+  // returns the directory in the terminal
   res.sendFile(__dirname + "/index.html")
 })
