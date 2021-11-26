@@ -55,6 +55,7 @@ app.get('/bmicalculator', (req, res) => {
 
 // post request
 app.post('/bmicalculator', (req, res) => {
+  // because height is a float, we need parseFloat instead of Number
   let weight = parseFloat(req.body.weight);
   let height = parseFloat(req.body.height);
   let sum = 0;
