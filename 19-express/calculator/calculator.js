@@ -60,6 +60,7 @@ app.post('/bmicalculator', (req, res) => {
   let height = parseFloat(req.body.height);
   let sum = 0;
 
+  // BMI formula
   sum = (weight/(height * height))
   res.send(`Your BMI is ${sum}`)
 })
